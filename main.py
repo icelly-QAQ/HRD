@@ -17,11 +17,7 @@ root = tk.Tk()
 root.title("数字华容道")
 
 def is_GameOver():  # 判断游戏是否胜利
-    global item
-
     return _map_data == _map_tuple
-
-    tc.i_send(item) # 将成绩提交至排行榜
 
 
 def left_move_check(x, y):  # 左移可行性检测
@@ -96,14 +92,13 @@ def update_ui(buttons):  # 更新UI
 
 
 def on_button_click(x, y, buttons):
+    global item
+
     move_number(x, y)
     update_ui(buttons)
     fs(False)
     if is_GameOver():
-        for row in buttons:
-            for button in row:
-                button.config(state=tk.DISABLED)
-        tk.Message(root)
+        tc.i_send(str(item))
 
 
 def save(x, y):  # 存档
