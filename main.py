@@ -1,8 +1,6 @@
 from lib import data
 from lib import tc
 
-# git test
-
 import tkinter as tk
 import random
 
@@ -23,7 +21,7 @@ def is_GameOver():  # 判断游戏是否胜利
 
     return _map_data == _map_tuple
 
-    tc.i_send(item)
+    tc.i_send(item) # 将成绩提交至排行榜
 
 
 def left_move_check(x, y):  # 左移可行性检测
