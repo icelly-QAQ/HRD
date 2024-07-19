@@ -5,9 +5,9 @@ import tkinter as tk
 import random
 
 # 初始化地图
-_map_tuple = data.create_map(2, 2)
+_map_tuple = data.create_map(11, 11)
 
-_map_data  = data.create_map(2, 2)
+_map_data  = data.create_map(11, 11)
 
 map_y, map_x = data.map_size(_map_data)
 
@@ -135,7 +135,7 @@ def fs(is_zero, now_fs = 0):
         item = 0
 
     fs = tk.Button(root, text=item, font=('Arial', 24), width=4, height=1)
-    fs.grid(row=3, column=10)
+    fs.grid(row=3, column=map_x)
 
     fs.config(text=str(item))
 
@@ -144,12 +144,12 @@ def main():
     global item
     global root
 
-    buttons = [[None for _ in range(10)] for _ in range(10)]
+    buttons = [[None for _ in range(map_x)] for _ in range(map_x)]
 
     cd = tk.Button(root, text="存档", font=('Arial', 24), width=4, height=1, command=lambda: save(map_x, map_y))
     dd = tk.Button(root, text="读档", font=('Arial', 24), width=4, height=1, command=lambda: load(buttons))
-    cd.grid(row=0, column=10)
-    dd.grid(row=1, column=10)
+    cd.grid(row=0, column=map_x)
+    dd.grid(row=1, column=map_x)
 
     for y in range(map_y):
         for x in range(map_x):

@@ -6,12 +6,12 @@ PORT = 23334
 
 BUFLEN = 512
 
+serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+serversocket.bind((IP, PORT))
+
 while True:
-    serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    serversocket.bind((IP, PORT))
-
-    serversocket.listen(5)
+    serversocket.listen(1)
 
     data, addr = serversocket.accept()
 
